@@ -1,0 +1,144 @@
+/*-- scss:defaults --*/
+// ricetalk: a Quarto revealjs theme for research talks.
+// Change the four brand colours below to re-skin the whole deck.
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700&display=swap');
+
+$primary:   #1F4E2C !default;   // dark brand colour: headings, dark slides
+$secondary: #6BAA3C !default;   // bullets, card tops, links
+$accent:    #D9A51F !default;   // key numbers, highlights, accent bars
+$alert:     #7A4E2D !default;   // "problem" cards
+$ink:       #222222 !default;
+
+$body-bg:                 #FBFAF4 !default;
+$body-color:              $ink;
+$link-color:              $secondary;
+$presentation-heading-color: $primary;
+$presentation-font-size-root: 42px !default;
+$font-family-sans-serif:  "Source Sans 3", sans-serif;
+$presentation-heading-font: "Montserrat", sans-serif;
+$presentation-heading-font-weight: 700;
+$code-block-font-size:    0.7em;
+
+/*-- scss:rules --*/
+$paper: #FFFFFF;
+$shadow: 0 6px 18px rgba($primary, .10);
+
+.reveal, .reveal .slides { font-family: "Source Sans 3", sans-serif; }
+
+// ---------- headings: gold accent bar under every slide title ----------
+.reveal .slides section:not(.section-slide) > h2 {
+  margin-bottom: .55em;
+  &::after { content: ""; display: block; width: 110px; height: 7px; margin-top: .22em;
+    border-radius: 4px; background: linear-gradient(90deg, $accent, $secondary); }
+}
+.card-title { display: block; font-family: "Montserrat", sans-serif; font-weight: 700; color: $primary; font-size: 1.05em;
+  margin: 0 0 .35em; text-transform: none; }
+
+// ---------- lists ----------
+.reveal ul li::marker { color: $secondary; }
+.reveal ul li { margin-bottom: .3em; }
+.reveal ol { list-style: none; counter-reset: item; margin-left: 0; padding-left: 0; }
+.reveal ol > li { counter-increment: item; position: relative; padding-left: 1.9em; margin-bottom: .45em; }
+.reveal ol > li::before { content: counter(item); position: absolute; left: 0; top: .08em;
+  width: 1.35em; height: 1.35em; line-height: 1.35em; border-radius: 50%; text-align: center;
+  background: $primary; color: white; font-family: "Montserrat"; font-weight: 700; font-size: .8em; }
+
+// ---------- highlight: highlighter-underline instead of a marker box ----------
+.hl { font-weight: 700; color: $primary;
+  background: linear-gradient(transparent 58%, rgba($accent, .45) 58%); padding: 0 .08em; }
+.muted { color: #7d7d72; }
+.cite  { display: block; margin-top: auto; padding-top: .5em; font-size: .72em; color: #8a8a7e; font-style: italic; }
+
+// ---------- cards ----------
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7em; margin-top: .5em; }
+.card { display: flex; flex-direction: column; background: $paper; border-radius: 18px;
+  padding: .8em .9em; box-shadow: $shadow; border-top: 9px solid $secondary;
+  font-size: .95em; line-height: 1.4; min-height: 8.5em;
+  p { margin: 0 0 .3em; } }
+.card-alert { border-top-color: $alert; }
+.card-key   { border-top-color: $accent; background: lighten($accent, 47%); }
+.card-grey  { border-top-color: #b5b5ab; color: #66665e; .card-title { color: #66665e; } }
+.card-num { .num { display: inline-block; font-family: "Montserrat"; font-weight: 700;
+  font-size: 2.2em; line-height: 1; color: $accent; margin-bottom: .2em; } }
+.future { margin-top: 1em; padding: .55em .9em; border-left: 7px solid $primary;
+  background: rgba($secondary, .10); border-radius: 0 12px 12px 0; font-size: .72em; }
+
+// ---------- big stat ----------
+.stat-card { background: $primary; color: white; border-radius: 22px; padding: .8em 1em;
+  box-shadow: $shadow; p { color: white; margin: .2em 0; } }
+.big-number { font-family: "Montserrat"; font-size: 3.2em; font-weight: 700; color: $accent; line-height: 1; }
+.stat-ci { color: rgba(255,255,255,.7); font-size: .8em; }
+
+// ---------- tables ----------
+.reveal table { border-collapse: collapse; }
+.reveal table thead th { background: $primary; color: white; border: none; padding: .3em .5em; }
+.reveal table tbody tr:nth-child(even) { background: rgba($secondary, .09); }
+.reveal table td { border-bottom: 1px solid #e6e6dc; padding: .25em .5em; }
+.small-table { font-size: 0.72em; }
+
+// ---------- title slide ----------
+.reveal .quarto-title-block {
+  h1.title { color: white !important; font-size: 1.75em; line-height: 1.15; margin-bottom: .5em; }
+  .subtitle { color: $accent !important; font-size: .8em; line-height: 1.5;
+    border-top: 5px solid $accent; padding-top: .55em; display: inline-block; }
+  .quarto-title-authors { margin-top: .6em; }
+  p, .quarto-title-author-name { color: white !important; }
+  .quarto-title-affiliation { color: rgba(255,255,255,.75) !important; font-size: .75em; }
+}
+
+// ---------- section dividers: centered, with big number ----------
+.reveal .slides section.section-slide {
+  text-align: left; padding-top: 250px;
+  &[data-num]::before { content: attr(data-num); display: block; font-family: "Montserrat";
+    font-weight: 700; font-size: 1.6em; color: $accent; letter-spacing: .05em; }
+  h2 { color: white; font-size: 2.8em; margin: 0;
+    &::after { content: ""; display: block; width: 160px; height: 9px; margin-top: .3em;
+      border-radius: 5px; background: $accent; } }
+  p { color: white; font-size: 1.3em; }
+}
+
+// ---------- chrome ----------
+.reveal .footer { color: #8f8f80; font-size: .42em; }
+.reveal .slide-number { color: $primary; background: transparent; font-size: .5em; }
+.reveal .progress { color: $accent; height: 5px; }
+
+// ---------- callouts ----------
+.reveal .callout { border-radius: 12px; box-shadow: $shadow; }
+
+// ---------- code ----------
+.code-slide pre code { font-size: 1.25em; line-height: 1.35; max-height: 720px !important; }
+.reveal pre { border-radius: 12px; box-shadow: $shadow; border: none !important; }
+
+// ---------- analysis workflow diagram ----------
+.workflow { display: flex; align-items: center; justify-content: center; gap: .4em; margin: .9em 0; }
+.workflow .step { background: $paper; border: 3px solid $secondary; border-radius: 16px; box-shadow: $shadow;
+  padding: .5em .8em; text-align: center; font-size: 1em; line-height: 1.35; width: 9em; }
+.workflow .step.key  { border-color: $accent; background: lighten($accent, 47%); }
+.workflow .step.grey { border-color: #b5b5ab; color: #77776e; }
+.workflow .arrow { font-size: 1.4em; color: $primary; font-weight: 700; }
+.workflow .fn { display: block; margin-top: .3em; font-size: .8em; color: #666; }
+.workflow-down { text-align: center; font-size: 1.2em; color: $primary; font-weight: 700; line-height: 1; }
+
+// ---------- long conclusion-style titles ----------
+.reveal .slides section:not(.section-slide) > h2 { font-size: 1.3em; line-height: 1.15; }
+
+// ---------- "how" code chip on result slides ----------
+.how { margin-top: .7em; padding: .35em .6em .45em; background: #F1F0E6;
+  border-left: 6px solid $primary; border-radius: 0 10px 10px 0; line-height: 1.25;
+  &::before { content: "HOW"; display: block; font-family: "Montserrat"; font-weight: 700;
+    font-size: .5em; letter-spacing: .12em; color: $primary; }
+  p { margin: 0; }
+  code { font-size: .52em; color: #333; background: transparent; white-space: normal; word-break: break-word; } }
+.stat-card + ul { margin-top: .5em; }
+.column .stat-card { padding: .6em .9em; .big-number { font-size: 2.6em; } }
+
+// ---------- figures: soft card frame ----------
+.reveal .slides img:not(.profile-photo) { border-radius: 10px; }
+
+// ---------- about me ----------
+.profile-photo { width: 360px; height: 360px; object-fit: cover; border-radius: 50%;
+  border: 8px solid $accent; box-shadow: $shadow; margin-top: .4em; background: #e9e8de; }
+.reveal.has-dark-background .footer, .reveal.has-dark-background .slide-number { color: rgba(255,255,255,.6); }
+.reveal .slides .column img:not(.profile-photo) { max-height: 600px; object-fit: contain; }
+.reveal ol, .reveal ol > li { list-style: none !important; }
+.reveal ol > li::marker { content: ""; }
