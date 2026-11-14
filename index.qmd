@@ -12,6 +12,28 @@ format:
       data-background-opacity: "0.35"
 ---
 
+## About Me
+
+:::: {.columns}
+::: {.column width="32%" .text-center}
+![](images/profile.jpg){.profile-photo}
+:::
+::: {.column width="68%"}
+### Kanthanawit Jaisong
+
+[Pathum Thani Rice Research Center, Rice Department]{.muted}
+
+- **Position:** [your position]
+- **Research interests:** plant disease epidemiology, crop loss assessment, [...]
+- **Tools:** R, Quarto, [...]
+- **Contact:** [email]
+:::
+::::
+
+::: {.notes}
+Keep this under 30 seconds.
+:::
+
 ## Background
 
 - Brown spot (*Bipolaris oryzae*) can reduce rice yield (Savary et al., 2000)

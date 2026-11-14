@@ -54,3 +54,5 @@ $code-block-font-size:    0.7em;
 .workflow-down { text-align: center; font-size: 1.2em; color: $kku-green; font-weight: 700; line-height: 1; }
 .reveal .panel-tabset img { max-height: 610px; object-fit: contain; }
 .workflow { margin: .9em 0; }
+.profile-photo { width: 360px; height: 360px; object-fit: cover; border-radius: 50%;
+  border: 6px solid $kku-gold; margin-top: .4em; }
