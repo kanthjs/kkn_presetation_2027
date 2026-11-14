@@ -118,12 +118,18 @@ $shadow: 0 6px 18px rgba(31, 78, 44, .10);
 .workflow .fn { display: block; margin-top: .3em; font-size: .8em; color: #666; }
 .workflow-down { text-align: center; font-size: 1.2em; color: $kku-green; font-weight: 700; line-height: 1; }
 
-// ---------- tabsets on results slides ----------
-.reveal .panel-tabset .nav-tabs { border-bottom: 3px solid rgba($kku-leaf, .35); }
-.reveal .panel-tabset .nav-link { font-size: .6em; color: #77776e; font-weight: 600; }
-.reveal .panel-tabset .nav-link.active { color: $kku-green; border-color: rgba($kku-leaf,.35) rgba($kku-leaf,.35) transparent; }
-.reveal .panel-tabset pre code { font-size: 1.3em; line-height: 1.35; }
-.reveal .panel-tabset img { max-height: 560px; object-fit: contain; }
+// ---------- long conclusion-style titles ----------
+.reveal .slides section:not(.section-slide) > h2 { font-size: 1.3em; line-height: 1.15; }
+
+// ---------- "how" code chip on result slides ----------
+.how { margin-top: .7em; padding: .35em .6em .45em; background: #F1F0E6;
+  border-left: 6px solid $kku-green; border-radius: 0 10px 10px 0; line-height: 1.25;
+  &::before { content: "HOW"; display: block; font-family: "Montserrat"; font-weight: 700;
+    font-size: .5em; letter-spacing: .12em; color: $kku-green; }
+  p { margin: 0; }
+  code { font-size: .52em; color: #333; background: transparent; white-space: normal; word-break: break-word; } }
+.stat-card + ul { margin-top: .5em; }
+.column .stat-card { padding: .6em .9em; .big-number { font-size: 2.6em; } }
 
 // ---------- figures: soft card frame ----------
 .reveal .slides img:not(.profile-photo) { border-radius: 10px; }
