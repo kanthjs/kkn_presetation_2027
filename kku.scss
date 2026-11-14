@@ -1,0 +1,56 @@
+/*-- scss:defaults --*/
+// แนวทางจาก slidecrafting-book: กำหนดสีเป็นตัวแปรก่อน แล้วค่อยใช้ทั้งธีม
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700&display=swap');
+
+$kku-green:  #1F4E2C;   // เขียวเกษตร
+$kku-leaf:   #6BAA3C;
+$kku-gold:   #D9A51F;   // ทองข้าว
+$kku-soil:   #7A4E2D;
+$ink:        #222222;
+
+$body-bg:                 #FAFAF5;
+$body-color:              $ink;
+$link-color:              $kku-leaf;
+$presentation-heading-color: $kku-green;
+$presentation-font-size-root: 42px;   // ห้องประชุมใหญ่ → ตัวอักษรใหญ่
+$font-family-sans-serif:  "Source Sans 3", sans-serif;
+$presentation-heading-font: "Montserrat", sans-serif;
+$presentation-heading-font-weight: 700;
+$code-block-font-size:    0.7em;
+
+/*-- scss:rules --*/
+.reveal .slide-number, .reveal .footer { color: $kku-green; font-size: 0.5em; }
+
+// สไลด์ขึ้นหัวข้อ (section) พื้นหลังเขียว ใช้: ## หัวข้อ {.section-slide}
+.section-slide {
+  h2 { color: white; font-size: 2.5em; }
+  p  { color: white; font-size: 1.3em; }
+}
+.reveal .quarto-title-block h1, .reveal .quarto-title-block p { color: white !important; }
+.reveal .quarto-title-block .subtitle { color: $kku-gold !important; }
+
+// ตัวเลขเด่น (key finding)
+.big-number { font-family: "Montserrat"; font-size: 3em; font-weight: 700; color: $kku-gold; line-height: 1; }
+.hl { background: rgba($kku-gold, 0.3); padding: 0 .15em; border-radius: 4px; }
+.muted { color: #777; }
+.small-table { font-size: 0.75em; }
+.reveal, .reveal .slides { font-family: "Source Sans 3", sans-serif; }
+.code-slide pre code { font-size: 1.25em; line-height: 1.35; max-height: 720px !important; }
+.code-fig pre code { font-size: 1.1em; line-height: 1.35; }
+.code-fig .column:first-child { font-size: 0.8em; }
+
+// Analysis workflow diagram
+.workflow { display: flex; align-items: center; justify-content: center; gap: .4em; margin: .6em 0; }
+.workflow .step { background: white; border: 3px solid $kku-leaf; border-radius: 14px;
+  padding: .5em .8em; text-align: center; font-size: 1em; line-height: 1.35; width: 9em; }
+.workflow .step.key  { border-color: $kku-gold; background: rgba($kku-gold, .12); }
+.workflow .step.grey { border-color: #aaa; color: #777; }
+.workflow .arrow { font-size: 1.4em; color: $kku-green; font-weight: 700; }
+.workflow .fn { display: block; margin-top: .3em; font-size: .8em; color: #666; }
+
+// tabsets on results slides
+.reveal .panel-tabset .nav-link { font-size: .6em; }
+.reveal .panel-tabset pre code { font-size: 1.3em; line-height: 1.35; }
+.workflow-down { text-align: center; font-size: 1.2em; color: $kku-green; font-weight: 700; line-height: 1; }
+.reveal .panel-tabset img { max-height: 610px; object-fit: contain; }
+.workflow { margin: .9em 0; }

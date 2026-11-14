@@ -1,0 +1,21 @@
+project:
+  title: "The 28th Agricultural Conference, Khon Kaen University"
+
+format:
+  revealjs:
+    theme: [default, kku.scss]
+    lang: en
+    slide-number: c/t
+    highlight-style: github
+    code-copy: true
+    width: 1600
+    height: 900
+    margin: 0.06
+    hash-type: number
+    transition: fade
+    chalkboard: false
+    preview-links: auto
+    footer: "The 28th Agricultural Conference, Khon Kaen University · 25–26 January 2027"
+    logo: images/logo.png
+    title-slide-attributes:
+      data-background-color: "#1F4E2C"
