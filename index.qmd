@@ -36,9 +36,29 @@ Keep this under 30 seconds.
 
 ## Background
 
-- Brown spot (*Bipolaris oryzae*) can reduce rice yield (Savary et al., 2000)
-- Yield loss assessment relies on the **disease–yield relationship** (Madden et al., 2007)
-- In the field, yield is also limited by [other unmeasured factors]{.hl} → OLS often finds no relationship (Madden & Paul, 2009)
+::::: {.cards}
+:::: {.card}
+[The disease]{.card-title}
+
+Brown spot (*Bipolaris oryzae*) can reduce rice yield
+
+[Savary et al., 2000]{.cite}
+::::
+:::: {.card}
+[The need]{.card-title}
+
+Yield-loss assessment relies on the **disease–yield relationship**
+
+[Madden et al., 2007]{.cite}
+::::
+:::: {.card .card-alert}
+[The problem]{.card-title}
+
+In the field, [other unmeasured factors]{.hl} also limit yield → OLS often finds no relationship
+
+[Madden & Paul, 2009]{.cite}
+::::
+:::::
 
 ::: {.notes}
 Problem: the disease effect is masked by other constraints.
@@ -47,24 +67,38 @@ Problem: the disease effect is masked by other constraints.
 ## Concept: Boundary Line
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column width="45%"}
 - Most points lie **below** the attainable level because of other constraints
 - Points on the **upper edge** = yield limited mainly by disease
 - Estimated by quantile regression at τ = 0.90 (Cade & Noon, 2003)
 - Partition the yield gap → **disease** + **other constraints** (Miti et al., 2024)
 :::
-::: {.column width="45%"}
+::: {.column width="55%"}
 ![](images/fig2a_boundary.png){width=100%}
 :::
 ::::
 
 ## Objectives
 
-1. Describe brown spot development under different inoculation treatments
-2. Analyze the disease–yield relationship
-3. Apply BLA to estimate the [yield gap caused by the disease]{.hl}
+::::: {.cards}
+:::: {.card .card-num}
+[1]{.num}
 
-## Materials and Methods {.section-slide background-image="images/brown_spot_bg.jpg" background-opacity="0.35" background-color="#1F4E2C"}
+Describe brown spot **development** under different inoculation treatments
+::::
+:::: {.card .card-num}
+[2]{.num}
+
+Analyze the **disease–yield relationship**
+::::
+:::: {.card .card-num .card-key}
+[3]{.num}
+
+Apply BLA to estimate the **yield gap caused by the disease**
+::::
+:::::
+
+## Materials and Methods {.section-slide data-num="01" background-image="images/brown_spot_bg.jpg" background-opacity="0.35" background-color="#1F4E2C"}
 
 ## Field Experiment
 
@@ -113,7 +147,7 @@ $$\text{Upper-bound yield} = \beta_0 + \beta_1 \times \text{AUDPC}$$
 R 4.6.0 · tidyverse · BLA · quantreg · plot = experimental unit (*n* = 32)
 :::
 
-## Results {.section-slide background-image="images/brown_spot_bg.jpg" background-opacity="0.35" background-color="#1F4E2C"}
+## Results {.section-slide data-num="02" background-image="images/brown_spot_bg.jpg" background-opacity="0.35" background-color="#1F4E2C"}
 
 ## Disease Progress
 
@@ -260,11 +294,13 @@ yg_other   <- yg_total - yg_disease           # other constraints
 
 :::: {.columns}
 ::: {.column width="50%"}
+::: {.stat-card}
 [33.2%]{.big-number}
 
 of the total yield gap in epidemic plots (T2, T3, T8)
 
-[95% CI 7.7–56.0%]{.muted}
+[95% CI 7.7–56.0%]{.stat-ci}
+:::
 :::
 ::: {.column width="50%"}
 - *y*~att~ = 750.2 kg/rai
@@ -284,13 +320,27 @@ of the total yield gap in epidemic plots (T2, T3, T8)
 
 ## Conclusions
 
-- Different inoculation regimes produced **two disease groups** with a **late-season** epidemic
-- **OLS did not detect** a disease–yield relationship
-- **BLA suggests** brown spot may account for ~[one third]{.hl} of the yield gap in epidemic plots
-- Evidence is not yet strong → preliminary estimate
+::::: {.cards}
+:::: {.card}
+[Disease]{.card-title}
 
-### Future work
-Continuous disease gradient (graded fungicide levels) · multiple seasons/sites · random-coefficients mixed model · earlier inoculation
+Inoculation produced **two disease groups**, with a **late-season** epidemic
+::::
+:::: {.card .card-grey}
+[OLS]{.card-title}
+
+**Did not detect** a disease–yield relationship (*P* = 0.151)
+::::
+:::: {.card .card-key}
+[Boundary line]{.card-title}
+
+Brown spot may account for ~[one third]{.hl} of the yield gap in epidemic plots
+::::
+:::::
+
+::: {.future}
+**Preliminary estimate. Next steps:** continuous disease gradient (graded fungicide levels) · multiple seasons/sites · random-coefficients mixed model · earlier inoculation
+:::
 
 ## Thank You {.section-slide background-image="images/brown_spot_bg.jpg" background-opacity="0.35" background-color="#1F4E2C"}
 
